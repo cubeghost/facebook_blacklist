@@ -4,6 +4,7 @@
 	padding:10px;
     z-index:10;
     top:-80px;
+    margin-top:12px;
 }
 
 .blacklist_4417 p {margin:10px;}
@@ -17,3 +18,24 @@ input#cw,input#showtext {margin-right:6px;margin-top:0;}
 #blacklist_container span.status_4417.active {margin-top:12px;}
 input#blacklist {border:1px solid #bdc7d8;padding:5px;margin-right:5px;width:242px;}
 input#blacklist:focus {border-color:#6d84b4;outline:0;}
+
+#blacklist_container._4-u2>._4-u3:first-child {
+    border-top: none;
+    -webkit-border-top-left-radius: 3px;
+    -webkit-border-top-right-radius: 3px;
+}
+#blacklist_container ._5dwa {
+    background-color: #f6f7f8;
+    line-height: 12px;
+    padding: 12px 0 11px;
+}
+#blacklist_container ._38my {
+    margin-left: 12px;
+    padding: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 11px;
+    color: #4e5665;
+}
+
+._4-u2 {margin-bottom:12px;}

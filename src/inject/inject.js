@@ -32,7 +32,7 @@ function check_posts(blacklist,cw_only,showtext) {
 
     $('._5v3q').not('.blacklisted').each(function(){ // loop through facebook posts
 
-        var post = $(this).find('._5pbx').html() + $(this).find('._6m3').html();
+        var post = $(this).find('._5pbx').html() + $(this).find('._6m3').html() + $(this).find('.plm').html(); // text post + link post + share post
         
         if (post) {
         
@@ -48,15 +48,14 @@ function check_posts(blacklist,cw_only,showtext) {
                                                     <p>Post matches blacklist: <span>' + match + '</span></p> \
                                                     <a class="show_4417">View post</a> \
                                                 </div>');
-                var t = $(this).find('._5pbx').height();
-                //var h = $(this).find('._5pbx').next('div').height(); // image height
+                var t = $(this).find('._5pbx').outerHeight(true);
+                if ($('._5pbx').length > 0) {t = t + 10}
                 var h = $(this).find('.mtm').outerHeight(true); // image height
-                //var c = $(this).find('._5pbx').next('div').next('div').height(); // comments height
                 var c = $(this).find('._5pcp').parent('form').height(); // comments height
                 if (showtext == true) {
-                    $(this).find('.blacklist_4417').css({'height':(h - 18) + 'px','margin-top':'-' + (h + c - 70) + 'px','margin-bottom':(c - 84) + 'px'});
+                    $(this).find('.blacklist_4417').css({'height':(h - 28) + 'px','margin-top':'-' + (h + c - 80) + 'px','margin-bottom':(c - 84) + 'px'});
                 } else {
-                    $(this).find('.blacklist_4417').css({'height':(h + t - 18) + 'px','margin-top':'-' + (h + t + c - 60) + 'px','margin-bottom':(c - 84) + 'px'});
+                    $(this).find('.blacklist_4417').css({'height':(h + t - 28) + 'px','margin-top':'-' + (h + t + c - 80) + 'px','margin-bottom':(c - 84) + 'px'});
                 }
                 $(this).on('click','.show_4417',function(){
                     $(this).parent().parent().find('._5pbx, ._46-i').css({'visibility':'visible'});
@@ -149,5 +148,3 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 });
 
 console.log('initializing facebook blacklist');
-
-console.log('todo: make work with link,shared posts, fix css');
