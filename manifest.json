@@ -2,8 +2,8 @@
   "name": "Blacklist for Facebook",
   "version": "0.0.5",
   "manifest_version": 2,
-  "description": "Block Facebook posts containing things you don't want to see.",
-  "homepage_url": "http://bldwn.co/",
+  "description": "Hide the posts you don't want to see - before you even see them.",
+  "homepage_url": "http://bldwn.co/blacklist/",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
