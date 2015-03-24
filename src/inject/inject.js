@@ -32,7 +32,7 @@ function check_posts(blacklist,cw_only,showtext) {
 
     $('._5v3q').not('.blacklisted').each(function(){ // loop through facebook posts
 
-        var post = $(this).find('._5pbx').html();
+        var post = $(this).find('._5pbx').html() + $(this).find('._6m3').html();
         
         if (post) {
         
@@ -49,12 +49,14 @@ function check_posts(blacklist,cw_only,showtext) {
                                                     <a class="show_4417">View post</a> \
                                                 </div>');
                 var t = $(this).find('._5pbx').height();
-                var h = $(this).find('._5pbx').next('div').height(); // image height
-                var c = $(this).find('._5pbx').next('div').next('div').height(); // comments height
+                //var h = $(this).find('._5pbx').next('div').height(); // image height
+                var h = $(this).find('.mtm').outerHeight(true); // image height
+                //var c = $(this).find('._5pbx').next('div').next('div').height(); // comments height
+                var c = $(this).find('._5pcp').parent('form').height(); // comments height
                 if (showtext == true) {
-                    $(this).find('.blacklist_4417').css({'height':h + 'px','margin-top':'-' + (h + c - 70) + 'px','margin-bottom':(c - 82) + 'px'});
+                    $(this).find('.blacklist_4417').css({'height':(h - 18) + 'px','margin-top':'-' + (h + c - 70) + 'px','margin-bottom':(c - 84) + 'px'});
                 } else {
-                    $(this).find('.blacklist_4417').css({'height':(h + t + 10) + 'px','margin-top':'-' + (h + t + c - 60) + 'px','margin-bottom':(c - 82) + 'px'});
+                    $(this).find('.blacklist_4417').css({'height':(h + t - 18) + 'px','margin-top':'-' + (h + t + c - 60) + 'px','margin-bottom':(c - 84) + 'px'});
                 }
                 $(this).on('click','.show_4417',function(){
                     $(this).parent().parent().find('._5pbx, ._46-i').css({'visibility':'visible'});
@@ -100,7 +102,7 @@ function facebook_blacklist() {
     var blacklist = [];
     var cw_only;
 
-    chrome.storage.sync.get({'blacklist_data':'','only_blacklist_cw':false,'show_post_text':false}, function(items) {
+    chrome.storage.sync.get({'blacklist_data':'nsfw','only_blacklist_cw':false,'show_post_text':false}, function(items) {
 
         var bl = items.blacklist_data;
         var cw = items.only_blacklist_cw;
@@ -119,6 +121,8 @@ function facebook_blacklist() {
         } else {*/
             if (bl.indexOf(',') !== -1) {
                 blacklist = bl.split(',');
+            } else if (bl == '') {
+                blacklist = [];
             } else {
                 blacklist.push(bl);
             }

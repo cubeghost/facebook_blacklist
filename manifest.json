@@ -2,14 +2,13 @@
   "name": "Facebook Blacklist",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "This extension was created with the awesome extensionizr.com",
-  "homepage_url": "http://extensionizr.com",
+  "description": "Block Facebook posts containing words you don't wanna see.",
+  "homepage_url": "http://bldwn.co/",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
-  "default_locale": "en",
   "background": {
     "scripts": [
       "src/bg/background.js"
