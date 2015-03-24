@@ -1,0 +1,20 @@
+.blacklist_4417 {
+	background:#f6f7f8;
+    box-sizing:border-box;
+	position:relative;
+	padding:10px;
+    z-index:10;
+    top:-80px;
+}
+
+.blacklist_4417 p {margin:10px;}
+.blacklist_4417 span {color:#ff0000;}
+.blacklist_4417 a.show_4417 {color:#6d84b4;margin:10px;position:absolute;bottom:7px;}
+
+#blacklist_container input {margin:12px 0;}
+input#cw {margin-right:6px;margin-top:0;}
+#blacklist_container label {font-weight:normal;}
+#blacklist_container span.status_4417 {color:red;display:block;}
+#blacklist_container span.status_4417.active {margin-top:12px;}
+input#blacklist {border:1px solid #bdc7d8;padding:5px;margin-right:5px;width:242px;}
+input#blacklist:focus {border-color:#6d84b4;outline:0;}
