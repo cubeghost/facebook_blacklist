@@ -50,12 +50,15 @@ function check_posts(blacklist,cw_only,showtext) {
                                                 </div>');
                 var t = $(this).find('._5pbx').outerHeight(true);
                 if ($('._5pbx').length > 0) {t = t + 10}
-                var h = $(this).find('.mtm').outerHeight(true); // image height
-                var c = $(this).find('._5pcp').parent('form').height(); // comments height
+                var h = $(this).find('.mtm ._4-eo').outerHeight(true); // image height
+                var c = $(this).find('.commentable_item').height(); // comments height
+                console.log('text height: ' + t);
+                console.log('image height: ' + h);
+                console.log('comment height: ' + c);
                 if (showtext == true) {
-                    $(this).find('.blacklist_4417').css({'height':(h - 28) + 'px','margin-top':'-' + (h + c - 80) + 'px','margin-bottom':(c - 84) + 'px'});
+                    $(this).find('.blacklist_4417').css({'height':(h - 18) + 'px','margin-top':'-' + (h + c - 80) + 'px','margin-bottom':(c - 84) + 'px'});
                 } else {
-                    $(this).find('.blacklist_4417').css({'height':(h + t - 28) + 'px','margin-top':'-' + (h + t + c - 80) + 'px','margin-bottom':(c - 84) + 'px'});
+                    $(this).find('.blacklist_4417').css({'height':(h + t - 18) + 'px','margin-top':'-' + (h + t + c - 80) + 'px','margin-bottom':(c - 84) + 'px'});
                 }
                 $(this).on('click','.show_4417',function(){
                     $(this).parent().parent().find('._5pbx, ._46-i').css({'visibility':'visible'});
