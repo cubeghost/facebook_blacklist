@@ -50,7 +50,7 @@ function check_posts(blacklist,cw_only,showtext) {
                                                 </div>');
                 var t = $(this).find('._5pbx').outerHeight(true);
                 if ($('._5pbx').length > 0) {t = t + 10}
-                var h = $(this).find('.mtm ._4-eo').outerHeight(true); // image height
+                var h = $(this).find('.mtm').children().outerHeight(true); // image height
                 var c = $(this).find('.commentable_item').height(); // comments height
                 console.log('text height: ' + t);
                 console.log('image height: ' + h);
