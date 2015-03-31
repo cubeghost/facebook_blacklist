@@ -108,15 +108,32 @@ function facebook_blacklist() {
         $('span.status_4417').text('Blacklist saved. Refresh to apply changes.').addClass('active');
         
     });
+    
+    $('#blacklist_container ._5dwa').click(function(){
+        if ($(this).parent().hasClass('hidden')) {
+            $(this).removeClass('closed');
+            $(this).next('._2ph_').slideDown(200,function(){
+                $(this).parent().removeClass('hidden');
+            });
+            chrome.storage.sync.set({'blacklist_collapsed':false});
+        } else {
+            $(this).addClass('closed');
+            $(this).next('._2ph_').slideUp(200,function(){
+                $(this).parent().addClass('hidden');
+            });
+            chrome.storage.sync.set({'blacklist_collapsed':true});
+        }
+    });
 
     var blacklist = [];
     var cw_only;
 
-    chrome.storage.sync.get({'blacklist_data':'nsfw','only_blacklist_cw':false,'show_post_text':false}, function(items) {
+    chrome.storage.sync.get({'blacklist_data':'nsfw','only_blacklist_cw':false,'show_post_text':false,'blacklist_collapsed':false}, function(items) {
 
         var bl = items.blacklist_data;
         var cw = items.only_blacklist_cw;
         var st = items.show_post_text;
+        var collapsed = items.blacklist_collapsed;
         
         //console.log('blacklist: ' + bl);
         //console.log('cw only mode: ' + cw);
@@ -125,6 +142,12 @@ function facebook_blacklist() {
         $('input#blacklist').val(bl);
         $('input#cw').prop('checked',cw);
         $('input#showtext').prop('checked',st);
+        
+        if (collapsed) {
+            $('#blacklist_container ._5dwa').addClass('closed');
+            $('#blacklist_container ._5dwa').parent().addClass('hidden');
+            $('#blacklist_container ._5dwa').next('._2ph_').hide();
+        }
         
         /*if (!bl) {
             chrome.storage.sync.set({'blacklist_data': '','only_blacklist_cw': false});

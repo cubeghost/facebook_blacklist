@@ -20,22 +20,39 @@ input#blacklist {border:1px solid #bdc7d8;padding:5px;margin-right:5px;width:242
 input#blacklist:focus {border-color:#6d84b4;outline:0;}
 
 #blacklist_container._4-u2>._4-u3:first-child {
-    border-top: none;
-    -webkit-border-top-left-radius: 3px;
-    -webkit-border-top-right-radius: 3px;
+    border-top:none;
+    -webkit-border-top-left-radius:3px;
+    -webkit-border-top-right-radius:3px;
 }
 #blacklist_container ._5dwa {
-    background-color: #f6f7f8;
-    line-height: 12px;
-    padding: 12px 0 11px;
+    background-color:#f6f7f8;
+    line-height:12px;
+    padding:12px 0 11px;
+    cursor:pointer;
+}
+#blacklist_container ._5dwa:after {
+    content:'';
+    display:block;
+    width:20px;
+    height:20px;
+    background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="768" height="768" viewBox="0 0 768 768"><path fill="#aaaaaa" d="M237.28 262.72L384 409.44l146.72-146.72L576 308 384 500 192 308z"/></svg>');
+	background-size:20px;
+	background-repeat:no-repeat;
+    float:right;
+    margin-top:-2px;
+    margin-right:8px;
+    transition:200ms linear transform;
+}
+#blacklist_container ._5dwa.closed:after {
+    transform:rotate(-90deg);
 }
 #blacklist_container ._38my {
-    margin-left: 12px;
-    padding: 0;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 11px;
-    color: #4e5665;
+    margin-left:12px;
+    padding:0;
+    text-transform:uppercase;
+    font-weight:bold;
+    font-size:11px;
+    color:#4e5665;
 }
 
 ._4-u2 {margin-bottom:12px;}
