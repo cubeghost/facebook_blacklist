@@ -52,13 +52,21 @@ function check_posts(blacklist,cw_only,showtext) {
                 if ($('._5pbx').length > 0) {t = t + 10}
                 var h = $(this).find('.mtm').children().outerHeight(true); // image height
                 var c = $(this).find('.commentable_item').height(); // comments height
+                var s = $(this).find('.plm').height(); // .plm height (share comment?)
+                if ($(this).find('.plm').length > 0) {s = s + 22}
                 console.log('text height: ' + t);
                 console.log('image height: ' + h);
                 console.log('comment height: ' + c);
+                console.log('share height: ' + s);
                 if (showtext == true) {
-                    $(this).find('.blacklist_4417').css({'height':(h - 18) + 'px','margin-top':'-' + (h + c - 80) + 'px','margin-bottom':(c - 84) + 'px'});
+                    if ($(this).find('.mtm').length == 0) {
+                        $(this).find('.blacklist_4417').hide();
+                        $(this).parent().parent().find('._46-i').css({'visibility':'visible'});
+                        console.log('text only show text');
+                    }
+                    $(this).find('.blacklist_4417').css({'height':(h + s - 18) + 'px','margin-top':'-' + (h + s + c - 80) + 'px','margin-bottom':(c - 94) + 'px'});
                 } else {
-                    $(this).find('.blacklist_4417').css({'height':(h + t - 18) + 'px','margin-top':'-' + (h + t + c - 80) + 'px','margin-bottom':(c - 84) + 'px'});
+                    $(this).find('.blacklist_4417').css({'height':(h + t + s - 18) + 'px','margin-top':'-' + (h + t + s + c - 80) + 'px','margin-bottom':(c - 94) + 'px'});
                 }
                 $(this).on('click','.show_4417',function(){
                     $(this).parent().parent().find('._5pbx, ._46-i').css({'visibility':'visible'});
