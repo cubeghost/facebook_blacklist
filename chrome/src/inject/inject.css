@@ -56,3 +56,7 @@ input#blacklist:focus {border-color:#6d84b4;outline:0;}
 }
 
 ._4-u2 {margin-bottom:12px;}
+
+.noFooter #blacklist_container {width:244px;}
+.noFooter #blacklist_container input#blacklist {width:208px;}
+.noFooter #blacklist_container label {font-size:11px;}
