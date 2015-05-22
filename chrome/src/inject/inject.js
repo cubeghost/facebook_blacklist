@@ -28,9 +28,9 @@ function list_check(data,list,cw_only) {
 
 }
 
-function check_posts(blacklist,cw_only,showtext) {
+function check_posts(blacklist,cw_only) {
 
-    $('._5v3q').not('.blacklisted').each(function(){ // loop through facebook posts
+    $('._4-u2').not('.blacklisted').each(function(){ // loop through facebook posts
 
         var post = $(this).find('._5pbx').html() + $(this).find('._6m3').html() + $(this).find('.plm').html(); // text post + link post + share post
         
@@ -41,36 +41,18 @@ function check_posts(blacklist,cw_only,showtext) {
             var match = list_check(post,blacklist,cw_only); // are there matches?
 
             if (match.length > 0) {
-                
+                                                
                 $(this).addClass('blacklisted');
-                $(this).find('._46-i').css({'visibility':'hidden'}); // ._5pbx
-                $(this).append('<div class="blacklist_4417"> \
-                                                    <p>Post matches blacklist: <span>' + match + '</span></p> \
-                                                    <a class="show_4417">View post</a> \
-                                                </div>');
-                var t = $(this).find('._5pbx').outerHeight(true);
-                if ($('._5pbx').length > 0) {t = t + 10}
-                var h = $(this).find('.mtm').children().outerHeight(true); // image height
-                var c = $(this).find('.commentable_item').height(); // comments height
-                var s = $(this).find('.plm').height(); // .plm height (share comment?)
-                if ($(this).find('.plm').length > 0) {s = s + 22}
-                console.log('text height: ' + t);
-                console.log('image height: ' + h);
-                console.log('comment height: ' + c);
-                console.log('share height: ' + s);
-                if (showtext == true) {
-                    if ($(this).find('.mtm').length == 0) {
-                        $(this).find('.blacklist_4417').hide();
-                        $(this).parent().parent().find('._46-i').css({'visibility':'visible'});
-                        console.log('text only show text');
+                $(this).find('._5pcp').eq(0).append(' \u00B7 <span class="blacklist_4418">post matches blacklist: <span>' + match + '</span></span> \u00B7 <a class="show_4418">show post</a>');
+                $(this).on('click','.show_4418',function(){
+                    var $parent =  $(this).parents('._4-u2');
+                    if ($parent.hasClass('blacklisted')) {
+                        $(this).text('hide post');
+                        $parent.addClass('showpost');
+                    } else {
+                        $(this).text('show post');
+                        $parent.removeClass('showpost');
                     }
-                    $(this).find('.blacklist_4417').css({'height':(h + s - 18) + 'px','margin-top':'-' + (h + s + c - 80) + 'px','margin-bottom':(c - 94) + 'px'});
-                } else {
-                    $(this).find('.blacklist_4417').css({'height':(h + t + s - 18) + 'px','margin-top':'-' + (h + t + s + c - 80) + 'px','margin-bottom':(c - 94) + 'px'});
-                }
-                $(this).on('click','.show_4417',function(){
-                    $(this).parent().parent().find('._5pbx, ._46-i').css({'visibility':'visible'});
-                    $(this).parent('.blacklist_4417').hide();
                 });
 
             }
@@ -89,23 +71,23 @@ function facebook_blacklist() {
         <span>Enter your blacklist as a comma-separated list</span>\
         <input type="text" id="blacklist" value=""><br>\
         <label for="cw"><input type="checkbox" id="cw">only blacklist if post contains "cw" or "tw"</label><br>\
-        <label for="showtext"><input type="checkbox" id="showtext">show post text</label><br>\
-        <a class="_42ft _4jy0 _59x2 _4jy3 _517h _51sy save_4417">Save</a>\
-        <span class="status_4417"></span></div></div></div></div>');
+        <label for="hidetrending"><input type="checkbox" id="hidetrending">hide trending stories</label><br>\
+        <a class="_42ft _4jy0 _59x2 _4jy3 _517h _51sy save_4418">Save</a>\
+        <span class="status_4418"></span></div></div></div></div>');
     }
        
-    $('.save_4417').click(function(){
+    $('.save_4418').click(function(){
 
         var bl = $('input#blacklist').val().replace(/,\s*/g,',');
         var cw = $('input#cw').prop('checked');
-        var st = $('input#showtext').prop('checked');
+        var ht = $('input#hidetrending').prop('checked');
         chrome.storage.sync.set({
             'blacklist_data': bl,
             'only_blacklist_cw': cw,
-            'show_post_text': st
+            'hide_trending': ht
         });
         
-        $('span.status_4417').text('Blacklist saved. Refresh to apply changes.').addClass('active');
+        $('span.status_4418').text('Blacklist saved. Refresh to apply changes.').addClass('active');
         
     });
     
@@ -128,20 +110,16 @@ function facebook_blacklist() {
     var blacklist = [];
     var cw_only;
 
-    chrome.storage.sync.get({'blacklist_data':'nsfw','only_blacklist_cw':false,'show_post_text':false,'blacklist_collapsed':false}, function(items) {
+    chrome.storage.sync.get({'blacklist_data':'nsfw','only_blacklist_cw':false,'hide_trending':false,'blacklist_collapsed':false}, function(items) {
 
         var bl = items.blacklist_data;
         var cw = items.only_blacklist_cw;
-        var st = items.show_post_text;
+        var ht = items.hide_trending;
         var collapsed = items.blacklist_collapsed;
-        
-        //console.log('blacklist: ' + bl);
-        //console.log('cw only mode: ' + cw);
-        //console.log('show post text: ' + cw);
-        
+                
         $('input#blacklist').val(bl);
         $('input#cw').prop('checked',cw);
-        $('input#showtext').prop('checked',st);
+        $('input#hidetrending').prop('checked',ht);
         
         if (collapsed) {
             $('#blacklist_container ._5dwa').addClass('closed');
@@ -160,8 +138,12 @@ function facebook_blacklist() {
                 blacklist.push(bl);
             }
         //}
-
-        check_posts(blacklist,cw,st);
+        
+        if (ht) {
+            $('#pagelet_trending_tags_and_topics').hide();
+        }
+        
+        check_posts(blacklist,cw);
 
     });
 
