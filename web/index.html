@@ -67,6 +67,20 @@
         margin-bottom:0.75em;
     }
     
+    sup {
+        vertical-align:top;
+        font-size:0.72em;
+    }
+    
+    hr {
+        width:50%;
+        height:1px;
+        background:#ddd;
+        margin:0 auto;
+        margin-bottom:1.1em;
+        margin-top:-0.3em;
+    }
+    
     section:after {
         clear:both;
         float:none;
@@ -78,7 +92,7 @@
         margin-right:2px;
     }
     
-    footer {position:absolute;bottom:10px;width:100%;}
+    footer {position:relative;bottom:20px;width:100%;}
     footer p {text-align:center;font-size:13px;opacity:0.7;}
     footer p a {color:#4e5665;text-decoration:none;}
     
@@ -87,15 +101,14 @@
         header img.logo {width:50%;}
         header h1 {font-size:3em;}
         header h2 {font-size:1.2em;}
-        section {max-width:405px;margin-bottom:440px;}
-        section article {margin-top:20px;}
+        section {max-width:405px;}
+        section article {margin-top:20px;float:none;}
+        section img.screenshot {float:none;}
+        section article.float {float:none;}
+        section.instructions {margin-top:-100px;}
     
     }
-    
-    @media only screen and (max-height:820px) {
-        footer {position:relative;}
-    }
-    
+        
     </style>
     
 </head>
@@ -121,15 +134,15 @@
         <article>
             <h3>Instructions</h3>
             <p>When you install Blacklist, refresh Facebook- 
-            <b>you'll find the options under the right-hand sidebar</b>.
-            On profile pages, the options are in the left sidebar (sometimes).</p>
-            <p>Add the words you want to blacklist as a comma-separated list.</p>
-            <p>You can choose to only hide images, or hide the entire post. You can also
-            choose to only hide posts that contain "cw" or "tw" (which stand for content
-            warning and trigger warning, respectively)- some Facebook groups use these,
-            but your friends probably don't, so if you don't know what that means, 
-            don't worry about it.</p>
+            <b>you'll find the options under the right-hand sidebar</b> on the home page. 
+            Add the words you want to blacklist as a comma-separated list.</p>
+            <p>You can also choose to hide the Trending stories in your sidebar and/or only 
+            blacklist posts which also contain a "cw" or "tw". <sup>[1]</sup> </p>
             <p>Extensions for Safari and Firefox are coming soon.</p>
+            <hr>
+            <p><small>1. These stand for "content warning" and "trigger warning", 
+            respectively. Some Facebook groups use these, but if your friends don't, 
+            don't worry about it, just keep it unchecked.</small></p>
         </article>
     </section>
     <footer><p><a href="http://bldwn.co/">bldwn.co</a></p></footer>
