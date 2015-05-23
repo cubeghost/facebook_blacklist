@@ -6,5 +6,6 @@ http://bldwn.co/blacklist/
 ![logo](http://bldwn.co/blacklist/logo.png)
 
 ## Todo
-+ Firefox extension
++ option to blacklist individual comments
 + Safari extension
++ Firefox extension
