@@ -46,7 +46,7 @@ function check_posts(blacklist,cw_only) {
                 $(this).find('._5pcp').eq(0).append(' \u00B7 <span class="blacklist_4418">post matches blacklist: <span>' + match + '</span></span> \u00B7 <a class="show_4418">show post</a>');
                 $(this).on('click','.show_4418',function(){
                     var $parent =  $(this).parents('._4-u2');
-                    if ($parent.hasClass('blacklisted')) {
+                    if (!$parent.hasClass('showpost')) {
                         $(this).text('hide post');
                         $parent.addClass('showpost');
                     } else {
