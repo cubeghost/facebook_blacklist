@@ -1,5 +1,5 @@
 .blacklisted {
-    height:38px;
+    height:60px;
     overflow:hidden;
     border-bottom:2px solid #fff!important;
     box-shadow:0 1px 0 #d0d1d5;
@@ -13,6 +13,7 @@
 
 .blacklist_4418 {font-weight:normal;}
 .blacklist_4418 span {color:#ff0000;}
+.blacklist_4418 span.hide_reason {display:none;} /* prep for option to hide why a post is blacklisted */
 a.show_4418 {color:#6d84b4;}
 
 #blacklist_container {background:#fff;}
