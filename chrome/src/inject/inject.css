@@ -12,13 +12,13 @@
 }
 
 .blacklist_4418 {font-weight:normal;}
-.blacklist_4418 span {color:#ff0000;}
+.blacklist_4418 span.reason {color:#ff0000;}
 .blacklist_4418 span.hide_reason {display:none;} /* prep for option to hide why a post is blacklisted */
 a.show_4418 {color:#6d84b4;}
 
 #blacklist_container {background:#fff;}
 #blacklist_container input {margin:12px 0;}
-input#cw,input#hidetrending {margin-right:6px;margin-top:0;}
+input#cw,input#hidetrending,input#hide_reason {margin-right:6px;margin-top:0;}
 #blacklist_container label {font-weight:normal;}
 #blacklist_container span.status_4418 {color:red;display:block;}
 #blacklist_container span.status_4418.active {margin-top:12px;}

@@ -44,7 +44,7 @@ function check_posts(blacklist,cw_only,hide_reason) {
             if (match.length > 0) {
                                                 
                 $(this).addClass('blacklisted');
-                $(this).find('._5pcp').eq(0).append(' \u00B7 <span class="blacklist_4418">post matches blacklist<span class="'+hide_class+'">: </span><span class="'+hide_class+'">' + match + '</span></span> \u00B7 <a class="show_4418">show post</a>');
+                $(this).find('._5pcp').eq(0).append(' \u00B7 <span class="blacklist_4418">post matches blacklist<span class="'+hide_class+'">: </span><span class="'+hide_class+' reason">' + match + '</span></span> \u00B7 <a class="show_4418">show post</a>');
                 $(this).on('click','.show_4418',function(){
                     var $parent =  $(this).parents('._4-u2');
                     if (!$parent.hasClass('showpost')) {
@@ -72,7 +72,7 @@ function facebook_blacklist() {
         <span>Enter your blacklist as a comma-separated list</span>\
         <input type="text" id="blacklist" value=""><br>\
         <label for="cw"><input type="checkbox" id="cw">only blacklist if post contains "cw" or "tw"</label><br>\
-        <label for="hide_reason"><input type="checkbox" id="hide_reason">show matched words</label><br>\
+        <label for="hide_reason"><input type="checkbox" id="hide_reason">hide matching words from notification</label><br>\
         <label for="hidetrending"><input type="checkbox" id="hidetrending">hide trending stories</label><br>\
         <a class="_42ft _4jy0 _59x2 _4jy3 _517h _51sy save_4418">Save</a>\
         <span class="status_4418"></span></div></div></div></div>');
