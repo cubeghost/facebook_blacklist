@@ -1,0 +1,56 @@
+{
+    "extDescription": {
+        "description": "Hide the posts you don't want to see - before you even see them.",
+        "message": "Extension description displayed in chrome"
+    },
+
+    "box_title": {
+        "message": "Blacklist",
+        "description": "Name displayed in the box form title"
+    },
+
+    "form_instructions": {
+        "message": "Enter your blacklist as a comma-separated list",
+        "description": "Instructions displayed in the form"
+    },
+
+    "hide_cw": {
+        "message": "only blacklist if post contains \"cw\" or \"tw\"",
+        "description": "Form option to hide posts with cw or tw"
+    },
+
+    "hide_notification": {
+        "message": "hide matching words from notification",
+        "description": "Form option to hide from notification"
+    },
+
+    "hide_trending": {
+        "message": "hide trending stories",
+        "description": "Form option to hide from trending stories"
+    },
+
+    "save_button": {
+        "message": "Save",
+        "description": "Submit button text"
+    },
+
+    "form_response": {
+        "message": "Blacklist saved. Refresh to apply changes.",
+        "description": "Message displayed when the blacklist is updated"
+    },
+
+    "post_match": {
+        "message": "post matches blacklist",
+        "description": "Message displayed in the news feed for blacklisted posts"
+    },
+
+    "show_post": {
+        "message": "show post",
+        "description": "Button displayed in the news feed to show blacklisted posts"
+    },
+
+    "hide_post": {
+        "message": "hide post",
+        "description": "Button displayed in the news feed to hide blacklisted posts"
+    }
+}

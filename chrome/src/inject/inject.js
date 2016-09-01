@@ -1,3 +1,12 @@
+/**
+ * Returns the message from the language file
+ * @param  {string} name The message name in the messages files
+ * @return {string}      The translated message
+ */
+function getMessage(name) {
+    return chrome.i18n.getMessage(name);
+}
+
 function list_check(data,list,cw_only) {
 
     var matches = []; 
@@ -6,7 +15,7 @@ function list_check(data,list,cw_only) {
 
         if (data.indexOf(value) !== -1) { // if post contains current item on blacklist
 
-            if (cw_only == true) { // if cw only is enabled
+            if (cw_only === true) { // if cw only is enabled
                 
                 if ((data.indexOf('cw') !== -1) || (data.indexOf('tw') !== -1)) { // if post contains "cw" or "tw"
                     
@@ -14,7 +23,7 @@ function list_check(data,list,cw_only) {
                 
                 }
 
-            } else if (cw_only == false) { // if cw only isn't enabled
+            } else if (cw_only === false) { // if cw only isn't enabled
             
                 matches.push(value); // add blacklist item to array
             
@@ -44,14 +53,14 @@ function check_posts(blacklist,cw_only,hide_reason) {
             if (match.length > 0) {
                                                 
                 $(this).addClass('blacklisted');
-                $(this).find('._5pcp').eq(0).append(' \u00B7 <span class="blacklist_4418">post matches blacklist<span class="'+hide_class+'">: </span><span class="'+hide_class+' reason">' + match + '</span></span> \u00B7 <a class="show_4418">show post</a>');
+                $(this).find('._5pcp').eq(0).append(' \u00B7 <span class="blacklist_4418">' + getMessage('post_match') + '<span class="'+hide_class+'">: </span><span class="'+hide_class+' reason">' + match + '</span></span> \u00B7 <a class="show_4418">' + getMessage('show_post') + '</a>');
                 $(this).on('click','.show_4418',function(){
                     var $parent =  $(this).parents('._4-u2');
                     if (!$parent.hasClass('showpost')) {
-                        $(this).text('hide post');
+                        $(this).text(getMessage('hide_post'));
                         $parent.addClass('showpost');
                     } else {
-                        $(this).text('show post');
+                        $(this).text(getMessage('show_post'));
                         $parent.removeClass('showpost');
                     }
                 });
@@ -68,13 +77,13 @@ function check_posts(blacklist,cw_only,hide_reason) {
 function facebook_blacklist() {
     
     if (!$('#blacklist_container').length) {
-        $('#pagelet_rhc_footer').before('<div class="_4-u2 _3-96" id="blacklist_container"><div class="_4-u3 _5dwa _5dwb"><span class="_38my">Blacklist</span></div><div class="_4-u3 _2ph_"><div><div class="_4t37" style="width:100%">\
-        <span>Enter your blacklist as a comma-separated list</span>\
+        $('#pagelet_rhc_footer').before('<div class="_4-u2 _3-96" id="blacklist_container"><div class="_4-u3 _5dwa _5dwb"><span class="_38my">' + getMessage('box_title') + '</span></div><div class="_4-u3 _2ph_"><div><div class="_4t37" style="width:100%">\
+        <span>' + getMessage('form_instructions') + '</span>\
         <input type="text" id="blacklist" value=""><br>\
-        <label for="cw"><input type="checkbox" id="cw">only blacklist if post contains "cw" or "tw"</label><br>\
-        <label for="hide_reason"><input type="checkbox" id="hide_reason">hide matching words from notification</label><br>\
-        <label for="hidetrending"><input type="checkbox" id="hidetrending">hide trending stories</label><br>\
-        <a class="_42ft _4jy0 _59x2 _4jy3 _517h _51sy save_4418">Save</a>\
+        <label for="cw"><input type="checkbox" id="cw">' + getMessage('hide_cw') + '</label><br>\
+        <label for="hide_reason"><input type="checkbox" id="hide_reason">' + getMessage('hide_notification') + '</label><br>\
+        <label for="hidetrending"><input type="checkbox" id="hidetrending">' + getMessage('hide_trending') + '</label><br>\
+        <a class="_42ft _4jy0 _59x2 _4jy3 _517h _51sy save_4418">' + getMessage('save_button') + '</a>\
         <span class="status_4418"></span></div></div></div></div>');
     }
        
@@ -91,7 +100,7 @@ function facebook_blacklist() {
             'hide_trending': ht
         });
         
-        $('span.status_4418').text('Blacklist saved. Refresh to apply changes.').addClass('active');
+        $('span.status_4418').text(getMessage('form_response')).addClass('active');
         
     });
     
@@ -138,7 +147,7 @@ function facebook_blacklist() {
         } else {*/
             if (bl.indexOf(',') !== -1) {
                 blacklist = bl.split(',');
-            } else if (bl == '') {
+            } else if (bl === '') {
                 blacklist = [];
             } else {
                 blacklist.push(bl);

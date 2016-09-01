@@ -1,0 +1,56 @@
+{
+    "extDescription": {
+        "message": "Esconda as postagens que você não quer ver - antes mesmo de você ver.",
+        "description": "Descrição da extensão exibida no chrome"
+    },
+
+    "box_title": {
+        "message": "Blacklist",
+        "description": "Nome exibido no título da caixa do formulário"
+    },
+
+    "form_instructions": {
+        "message": "Insira as palavras da sua blacklist separando-as por vírgula",
+        "description": "Instruções exibidas no formulário"
+    },
+
+    "hide_cw": {
+        "message": "só bloqueie se a postagem contém \"cw\" ou \"tw\"",
+        "description": "Opção do formulário para bloquear postagens com cw ou tw"
+    },
+
+    "hide_notification": {
+        "message": "esconder também das notificações",
+        "description": "Opção do formulário para esconder das notificações"
+    },
+
+    "hide_trending": {
+        "message": "esconder principais histórias",
+        "description": "Opção do formulário para esconder também nas principais histórias"
+    },
+
+    "save_button": {
+        "message": "Salvar",
+        "description": "Texto do botão de submissão"
+    },
+
+    "form_response": {
+        "message": "Blacklist salva. Recarregue a página para aplicar as mudanças.",
+        "description": "Mensagem exibida quando a blacklist é atualizada"
+    },
+
+    "post_match": {
+        "message": "postagem caiu na blacklist",
+        "description": "Mensagem exibida no feed de notícias para as postagens bloqueadas"
+    },
+
+    "show_post": {
+        "message": "mostrar postagem",
+        "description": "Botão exibido no feed de notícias para exibir postagens bloqueadas"
+    },
+
+    "hide_post": {
+        "message": "esconder postagem",
+        "description": "Botão exibido no feed de notícias para esconder postagens bloqueadas"
+    }
+}

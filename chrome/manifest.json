@@ -1,8 +1,9 @@
 {
   "name": "Blacklist for Facebook",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "manifest_version": 2,
-  "description": "Hide the posts you don't want to see - before you even see them.",
+  "default_locale": "en",
+  "description": "__MSG_extDescription__",
   "homepage_url": "http://bldwn.co/blacklist/",
   "icons": {
     "16": "icons/icon16.png",
