@@ -6,72 +6,72 @@
 
     <style type="text/css">
     * {margin:0;padding:0;border:0;box-sizing:border-box;}
-    
+
     body {
         font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
         background:#e9eaed;
         color:#4e5665;
     }
-    
+
     header {
         background:#f6f7f8;
         width:100%;
         text-align:center;
-        padding:50px;        
+        padding:50px;
     }
-    
+
     header img.logo {width:25%;max-width:800px;}
-    
+
     header a {text-decoration:none;color:#4e5665;}
-    
+
     header h1 {
         font-size:4em;
         margin-top:40px;
         font-weight:300;
     }
-    
+
     header h2 {
         margin-top:20px;
         font-weight:300;
         opacity:0.6;
     }
-    
+
     section {padding:50px;max-width:710px;margin:0 auto;}
-    
+
     section.instructions {margin:140px auto 0px auto;padding:60px 40px 60px 60px;}
-    
+
     section img.screenshot {float:left;}
-    
+
     section article.float {
         float:right;
         height:215px;
         width:310px;
         padding:10px;
     }
-    
+
     section article p {
         margin-bottom:1.5em;
         line-height:1.1em;
         display:block;
     }
-    
+
     section article p a {
         color:#3b5998;
         font-weight:600;
         text-decoration:none;
     }
-    
+
     section article h3 {
         font-weight:300;
         font-size:2em;
         margin-bottom:0.75em;
     }
-    
+
     sup {
         vertical-align:top;
         font-size:0.72em;
     }
-    
+
     hr {
         width:50%;
         height:1px;
@@ -80,24 +80,24 @@
         margin-bottom:1.1em;
         margin-top:-0.3em;
     }
-    
+
     section:after {
         clear:both;
         float:none;
         display:table;
     }
-    
+
     .store {
         margin-bottom:-2px;
         margin-right:2px;
     }
-    
+
     footer {position:relative;bottom:20px;width:100%;}
     footer p {text-align:center;font-size:13px;opacity:0.7;}
     footer p a {color:#4e5665;text-decoration:none;}
-    
+
     @media only screen and (max-width:800px) {
-    
+
         header img.logo {width:50%;}
         header h1 {font-size:3em;}
         header h2 {font-size:1.2em;}
@@ -106,11 +106,11 @@
         section img.screenshot {float:none;}
         section article.float {float:none;}
         section.instructions {margin-top:-100px;}
-    
+
     }
-        
+
     </style>
-    
+
 </head>
 <body>
     <header>
@@ -125,27 +125,26 @@
         <article class="float">
             <p>Blacklist for Facebook allows you to pre-emptively hide posts with certain words in them. It's that easy.</p>
             <p><img src="shop.svg" class="store" width="16"> Get it now in the <a href="https://chrome.google.com/webstore/detail/blacklist-for-facebook/cenmgeenadipbainomfhgkapenbmgiom">Chrome Web Store</a>.</p>
-            <p>Blacklist is still fresh out of development- if you run into any bugs, 
-            go ahead and email me at <a href="mailto:alex@bldwn.co">alex@bldwn.co</a>, 
-            or send me a tweet at <a href="https://twitter.com/cubeghost" target="_blank">@cubeghost</a>.</p>
+            <p>This is a side project I don't have a lot of time to work on-
+            if you run into any problems or have suggestions, feel free to file an issue on
+            <a href="https://github.com/cubeghost/facebook_blacklist">Github</a>.</p>
         </article>
     </section>
     <section class="instructions">
         <article>
             <h3>Instructions</h3>
-            <p>When you install Blacklist, refresh Facebook- 
-            <b>you'll find the options under the right-hand sidebar</b> on the home page. 
+            <p>When you install Blacklist, refresh Facebook-
+            <b>you'll find the options under the right-hand sidebar</b> on the home page.
             Add the words you want to blacklist as a comma-separated list.</p>
-            <p>You can also choose to hide the Trending stories in your sidebar and/or only 
+            <p>You can also choose to hide the Trending stories in your sidebar and/or only
             blacklist posts which also contain a "cw" or "tw". <sup>[1]</sup> </p>
-            <p>Extensions for Safari and Firefox are coming soon.</p>
             <hr>
-            <p><small>1. These stand for "content warning" and "trigger warning", 
-            respectively. Some Facebook groups use these, but if your friends don't, 
-            don't worry about it, just keep it unchecked.</small></p>
+            <p><small>1. These stand for "content warning" and "trigger warning",
+            respectively. Some Facebook groups use these, but if your friends don't,
+            don't worry about it.</small></p>
         </article>
     </section>
-    <footer><p><a href="http://bldwn.co/">bldwn.co</a></p></footer>
+    <footer><p><a href="https://cubegho.st/">cubegho.st</a></p></footer>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
